@@ -27,26 +27,26 @@ export default function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-20 border-t border-zinc-900 bg-zinc-950">
+    <section id="experience" className="py-28 border-t border-zinc-900 bg-[#030303]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-12">
-          <p className="font-mono text-xs text-teal-500 uppercase tracking-widest mb-2">04. Engagement</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Experience & Community</h2>
+        <div className="mb-16">
+          <p className="font-mono text-xs text-teal-400 uppercase tracking-widest mb-2">06. Engagement</p>
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">Experience & Community</h2>
         </div>
 
         {/* Timeline */}
-        <div className="relative border-l border-zinc-800 ml-4 pl-8 space-y-12">
+        <div className="relative border-l-2 border-zinc-900 ml-4 pl-8 space-y-12">
           {activities.map((act, idx) => (
             <div key={idx} className="relative group">
               {/* Timeline dot */}
-              <span className="absolute -left-[45px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 text-teal-400 group-hover:border-teal-500 transition-colors">
+              <span className="absolute -left-[45px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-zinc-950 border border-zinc-850 text-teal-400 group-hover:border-teal-500 transition-colors">
                 {act.icon}
               </span>
 
               {/* Card Container */}
-              <div className="p-6 rounded-lg border border-zinc-800/80 bg-zinc-900/10 hover:border-zinc-700/80 hover:bg-zinc-900/30 transition-all">
+              <div className="p-6 rounded-lg border border-zinc-850 bg-zinc-900/10 hover:border-zinc-800 hover:bg-zinc-900/20 transition-all glow-card">
                 {/* Meta details */}
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                   <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider">

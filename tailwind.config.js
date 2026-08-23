@@ -11,9 +11,23 @@ export default {
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
-        darkBg: '#09090b', // Zinc 950
-        darkCard: '#18181b', // Zinc 900
+        darkBg: '#030303', // Deep absolute dark
+        darkCard: '#09090b', // Zinc 950
+        accentBlue: '#2563eb', // Electric blue
+        accentIndigo: '#4f46e5', // Deep indigo
+        accentCyan: '#06b6d4', // Vibrant cyan
       },
+      animation: {
+        'spin-slow': 'spin 12s linear infinite',
+        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        }
+      }
     },
   },
   plugins: [],

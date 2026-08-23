@@ -24,13 +24,13 @@ export default function Achievements() {
   ]
 
   return (
-    <section id="achievements" className="py-20 border-t border-zinc-900 bg-zinc-950">
+    <section id="achievements" className="py-28 border-t border-zinc-900 bg-[#030303]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-12">
-          <p className="font-mono text-xs text-teal-500 uppercase tracking-widest mb-2">06. Recognition</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Achievements & Hackathons</h2>
+        <div className="mb-16">
+          <p className="font-mono text-xs text-teal-400 uppercase tracking-widest mb-2">08. Recognition</p>
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">Achievements & Hackathons</h2>
         </div>
 
         {/* Achievement Grid */}
@@ -38,11 +38,11 @@ export default function Achievements() {
           {achievements.map((item, idx) => (
             <div 
               key={idx}
-              className="p-6 rounded-lg border border-zinc-800/80 bg-zinc-900/10 hover:border-zinc-700/80 transition-all flex flex-col justify-between"
+              className="p-6 rounded-lg border border-zinc-850 bg-zinc-900/10 hover:border-zinc-800 transition-all flex flex-col justify-between glow-card"
             >
               <div>
                 {/* Header Icon */}
-                <div className="flex-shrink-0 w-10 h-10 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded bg-zinc-950 border border-zinc-850 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 
@@ -50,7 +50,7 @@ export default function Achievements() {
                 <h3 className="text-base font-bold text-white mb-1">
                   {item.title}
                 </h3>
-                <p className="text-xs font-mono text-teal-500 mb-3">
+                <p className="text-xs font-mono text-teal-400 mb-3">
                   {item.detail}
                 </p>
                 

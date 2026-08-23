@@ -3,22 +3,22 @@ import { GraduationCap, Award, Calendar } from 'lucide-react'
 
 export default function Education() {
   return (
-    <section id="education" className="py-20 border-t border-zinc-900 bg-zinc-950">
+    <section id="education" className="py-28 border-t border-zinc-900 bg-[#030303]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-12">
-          <p className="font-mono text-xs text-teal-500 uppercase tracking-widest mb-2">05. Academics</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Education</h2>
+        <div className="mb-16">
+          <p className="font-mono text-xs text-teal-400 uppercase tracking-widest mb-2">07. Academics</p>
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">Education</h2>
         </div>
 
         {/* Education Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Institution Card */}
-          <div className="lg:col-span-8 p-6 md:p-8 rounded-lg border border-zinc-800/80 bg-zinc-900/10 hover:border-zinc-700/80 transition-all">
+          <div className="lg:col-span-8 p-6 md:p-8 rounded-lg border border-zinc-850 bg-zinc-900/10 hover:border-zinc-800 transition-all glow-card">
             <div className="flex items-start gap-4">
-              <div className="p-3 rounded bg-zinc-900 border border-zinc-800 text-teal-400">
+              <div className="p-3 rounded bg-zinc-950 border border-zinc-850 text-teal-400">
                 <GraduationCap size={24} />
               </div>
               <div className="space-y-3">
@@ -45,7 +45,7 @@ export default function Education() {
           </div>
 
           {/* Metric Box (CGPA Highlight) */}
-          <div className="lg:col-span-4 p-6 md:p-8 rounded-lg border border-teal-500/10 bg-teal-500/[0.02] text-center relative overflow-hidden group hover:border-teal-500/30 transition-all">
+          <div className="lg:col-span-4 p-6 md:p-8 rounded-lg border border-teal-500/10 bg-teal-500/[0.02] text-center relative overflow-hidden group hover:border-teal-500/30 transition-all glow-card">
             {/* Ambient background light */}
             <div className="absolute inset-0 bg-teal-500/[0.01] pointer-events-none group-hover:bg-teal-500/[0.03] transition-colors"></div>
             

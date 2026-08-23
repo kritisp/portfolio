@@ -4,6 +4,8 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
+import Journey from './components/Journey'
+import BeyondCode from './components/BeyondCode'
 import Experience from './components/Experience'
 import Education from './components/Education'
 import Achievements from './components/Achievements'
@@ -12,7 +14,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-teal-500/20 selection:text-teal-200">
+    <div className="bg-[#030303] text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-teal-500/20 selection:text-teal-200">
       {/* Sticky Top Header */}
       <Navbar />
 
@@ -30,16 +32,22 @@ export default function App() {
         {/* Section 03: Skills Board */}
         <Skills />
 
-        {/* Section 04: Experience & Community Timeline */}
+        {/* Section 04: Building Journey Timeline */}
+        <Journey />
+
+        {/* Section 05: Brand Philosophy (Beyond Code) */}
+        <BeyondCode />
+
+        {/* Section 06: Experience & Community Timeline */}
         <Experience />
 
-        {/* Section 05: Academic Information */}
+        {/* Section 07: Academic Information */}
         <Education />
 
-        {/* Section 06: Achievements & Hackathons */}
+        {/* Section 08: Achievements & Hackathons */}
         <Achievements />
 
-        {/* Section 07: Contact Form Card */}
+        {/* Section 09: Contact Form Card */}
         <Contact />
       </main>
 

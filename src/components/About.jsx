@@ -31,13 +31,13 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-20 border-t border-zinc-900 bg-zinc-950">
+    <section id="about" className="py-28 md:py-36 border-t border-zinc-900 bg-[#030303]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-12 md:mb-16">
-          <p className="font-mono text-xs text-teal-500 uppercase tracking-widest mb-2">01. Identity</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">About Me</h2>
+        <div className="mb-16">
+          <p className="font-mono text-xs text-teal-400 uppercase tracking-widest mb-2">01. Identity</p>
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">About Me</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -63,9 +63,9 @@ export default function About() {
               {highlights.map((h, i) => (
                 <div 
                   key={i} 
-                  className="flex gap-4 p-4 rounded-lg border border-zinc-800/80 bg-zinc-900/30 hover:border-teal-500/20 hover:bg-zinc-900/50 transition-all duration-300"
+                  className="flex gap-4 p-4 rounded-lg border border-zinc-850 bg-zinc-900/10 hover:border-teal-500/20 hover:bg-zinc-900/20 transition-all duration-300 glow-card"
                 >
-                  <div className="flex-shrink-0 mt-0.5 p-1.5 rounded bg-zinc-900 border border-zinc-800">
+                  <div className="flex-shrink-0 mt-0.5 p-1.5 rounded bg-zinc-950 border border-zinc-850">
                     {h.icon}
                   </div>
                   <div>

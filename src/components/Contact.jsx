@@ -34,13 +34,13 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 border-t border-zinc-900 bg-zinc-950">
+    <section id="contact" className="py-28 border-t border-zinc-900 bg-[#030303]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-12">
-          <p className="font-mono text-xs text-teal-500 uppercase tracking-widest mb-2">07. Communication</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Get In Touch</h2>
+        <div className="mb-16">
+          <p className="font-mono text-xs text-teal-400 uppercase tracking-widest mb-2">09. Communication</p>
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">Get In Touch</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -54,9 +54,9 @@ export default function Contact() {
             </div>
 
             {/* Email Copy Card */}
-            <div className="p-4 rounded-lg border border-zinc-800/80 bg-zinc-900/10 flex items-center justify-between gap-4 max-w-md">
+            <div className="p-4 rounded-lg border border-zinc-850 bg-zinc-900/10 flex items-center justify-between gap-4 max-w-md glow-card">
               <div className="flex items-center gap-3 overflow-hidden">
-                <div className="p-2.5 rounded bg-zinc-900 border border-zinc-800 text-teal-400 flex-shrink-0">
+                <div className="p-2.5 rounded bg-zinc-950 border border-zinc-850 text-teal-400 flex-shrink-0">
                   <Mail size={18} />
                 </div>
                 <div className="overflow-hidden">
@@ -66,7 +66,7 @@ export default function Contact() {
               </div>
               <button 
                 onClick={copyToClipboard}
-                className="p-2 rounded bg-zinc-900 border border-zinc-850 hover:bg-zinc-800/50 hover:text-white text-zinc-400 transition-all flex-shrink-0"
+                className="p-2 rounded bg-zinc-950 border border-zinc-850 hover:bg-zinc-900/50 hover:text-white text-zinc-400 transition-all flex-shrink-0"
                 title="Copy to clipboard"
               >
                 {copied ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
@@ -79,7 +79,7 @@ export default function Contact() {
                 href="https://github.com/kritisp" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors p-2 rounded border border-zinc-850 hover:border-zinc-700 bg-zinc-900/10"
+                className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors p-2 rounded border border-zinc-850 hover:border-zinc-800 bg-zinc-900/10"
               >
                 <Github size={16} />
                 <span>kritisp</span>
@@ -89,7 +89,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/kriti-sreyash-parida-8440991aa" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors p-2 rounded border border-zinc-850 hover:border-zinc-700 bg-zinc-900/10"
+                className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors p-2 rounded border border-zinc-850 hover:border-zinc-800 bg-zinc-900/10"
               >
                 <Linkedin size={16} />
                 <span>Kriti Sreyash Parida</span>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -9,37 +9,71 @@ export default function Footer() {
   }
 
   return (
-    <footer className="py-8 border-t border-zinc-900 bg-zinc-950">
+    <footer className="py-12 border-t border-zinc-900 bg-[#030303]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 pb-8 border-b border-zinc-900">
           
-          {/* Logo & Copyright */}
+          {/* Brand Info */}
           <div className="text-center md:text-left space-y-1">
-            <p className="text-xs font-mono text-zinc-500">
-              © {currentYear} Kriti Sreyash Parida. All rights reserved.
-            </p>
-            <p className="text-[10px] font-mono text-zinc-600">
-              Designed & Engineered with precision.
+            <h4 className="text-sm font-bold text-white tracking-wider font-mono">
+              KRITI SREYASH PARIDA
+            </h4>
+            <p className="text-xs text-zinc-500">
+              Building AI-powered solutions with curiosity and purpose.
             </p>
           </div>
 
-          {/* Tech Stack Info */}
-          <div className="text-center">
-            <span className="text-[11px] font-mono text-zinc-500 border border-zinc-850 px-2.5 py-1 rounded-full bg-zinc-900/30">
-              React.js + Tailwind CSS + Lucide Icons
-            </span>
+          {/* Social Quick Links */}
+          <div className="flex items-center justify-center gap-6">
+            <a 
+              href="https://github.com/kritisp" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-zinc-500 hover:text-white transition-colors"
+              aria-label="GitHub"
+            >
+              <Github size={18} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/kriti-sreyash-parida-8440991aa" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-zinc-500 hover:text-white transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a 
+              href="mailto:kspchimun@gmail.com" 
+              className="text-zinc-500 hover:text-white transition-colors"
+              aria-label="Email"
+            >
+              <Mail size={18} />
+            </a>
           </div>
 
           {/* Back to Top */}
-          <button 
-            onClick={scrollToTop}
-            className="flex items-center gap-1 text-[11px] font-mono text-zinc-500 hover:text-white transition-colors"
-            title="Scroll to Top"
-          >
-            <span>Back to top</span>
-            <ArrowUp size={12} />
-          </button>
+          <div className="flex justify-center md:justify-end">
+            <button 
+              onClick={scrollToTop}
+              className="flex items-center gap-1 text-xs font-mono text-zinc-500 hover:text-white transition-colors"
+              title="Scroll to Top"
+            >
+              <span>Back to top</span>
+              <ArrowUp size={12} />
+            </button>
+          </div>
 
+        </div>
+
+        {/* Copyright info */}
+        <div className="flex flex-col sm:flex-row items-center justify-between pt-6 text-[10px] font-mono text-zinc-600 gap-2">
+          <span>
+            © {currentYear} Kriti Sreyash Parida. All rights reserved.
+          </span>
+          <span>
+            Designed & Engineered for High-Impact.
+          </span>
         </div>
       </div>
     </footer>
