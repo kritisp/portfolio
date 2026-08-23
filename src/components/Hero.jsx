@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Github, Linkedin, Mail, ArrowRight, Sparkles, Terminal } from 'lucide-react'
 
-export default function Hero() {
+export default function Hero({ theme }) {
   const canvasRef = useRef(null)
   const [typedText, setTypedText] = useState('')
   const fullText = 'Building intelligent solutions for real-world problems.'
@@ -43,11 +43,9 @@ export default function Hero() {
       }
 
       update() {
-        // Bounce off walls
         if (this.x < 0 || this.x > width) this.vx = -this.vx
         if (this.y < 0 || this.y > height) this.vy = -this.vy
 
-        // Pull toward mouse
         if (mouse.x !== null) {
           const dx = mouse.x - this.x
           const dy = mouse.y - this.y
@@ -66,12 +64,13 @@ export default function Hero() {
       draw() {
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(6, 182, 212, 0.4)' // Cyan-500
+        ctx.fillStyle = theme === 'dark' 
+          ? 'rgba(6, 182, 212, 0.4)' // Cyan
+          : 'rgba(37, 99, 235, 0.25)' // Electric blue
         ctx.fill()
       }
     }
 
-    // Initialize particles
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle())
     }
@@ -88,7 +87,9 @@ export default function Hero() {
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(79, 70, 229, ${opacity})` // Indigo-600
+            ctx.strokeStyle = theme === 'dark'
+              ? `rgba(79, 70, 229, ${opacity})`
+              : `rgba(99, 102, 241, ${opacity * 0.7})`
             ctx.lineWidth = 0.8
             ctx.stroke()
           }
@@ -134,55 +135,53 @@ export default function Hero() {
       window.removeEventListener('mouseleave', handleMouseLeave)
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [theme])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-32 pb-24 overflow-hidden bg-gradient-to-b from-[#030303] to-[#09090b]">
+    <section className="relative min-h-screen flex items-center justify-center pt-32 pb-24 overflow-hidden bg-gradient-to-b from-zinc-100 to-zinc-50 dark:from-[#030303] dark:to-[#09090b]">
       {/* Animated Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-80" />
 
       {/* Grid Lines Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293708_1px,transparent_1px),linear-gradient(to_bottom,#1f293708_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293706_1px,transparent_1px),linear-gradient(to_bottom,#1f293706_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       {/* Glowing backdrop sources */}
-      <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-teal-500/5 blur-[100px] pointer-events-none animate-pulse-slow"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-indigo-500/5 blur-[100px] pointer-events-none animate-pulse-slow"></div>
+      <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-teal-500/5 dark:bg-teal-500/5 blur-[100px] pointer-events-none animate-pulse-slow"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-indigo-500/5 dark:bg-indigo-500/5 blur-[100px] pointer-events-none animate-pulse-slow"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex flex-col items-center">
         
         {/* Futuristic Avatar Glyphs */}
         <div className="relative w-32 h-32 mb-8 group">
-          {/* Concentric rotating rings */}
-          <div className="absolute inset-0 rounded-full border border-teal-500/30 border-dashed animate-spin-slow"></div>
-          <div className="absolute inset-2 rounded-full border border-indigo-500/20 border-double animate-spin-slow [animation-direction:reverse]"></div>
-          <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-indigo-500/10 to-teal-500/10 border border-zinc-800/80 backdrop-blur-md flex items-center justify-center overflow-hidden">
-            <Terminal size={32} className="text-teal-400 group-hover:scale-110 transition-transform duration-300" />
+          <div className="absolute inset-0 rounded-full border border-zinc-300 dark:border-teal-500/30 border-dashed animate-spin-slow"></div>
+          <div className="absolute inset-2 rounded-full border border-zinc-200 dark:border-indigo-500/20 border-double animate-spin-slow [animation-direction:reverse]"></div>
+          <div className="absolute inset-4 rounded-full bg-white dark:bg-gradient-to-tr dark:from-indigo-500/10 dark:to-teal-500/10 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-md flex items-center justify-center overflow-hidden">
+            <Terminal size={32} className="text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform duration-300" />
           </div>
-          {/* Glowing bottom badge */}
-          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-zinc-900 border border-zinc-850 text-zinc-400 tracking-wider">
+          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-zinc-100 border border-zinc-200 dark:bg-zinc-900 dark:border-zinc-850 text-zinc-500 dark:text-zinc-400 tracking-wider">
             v1.0.0
           </span>
         </div>
 
         {/* Status Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-teal-500/20 bg-teal-500/5 text-teal-400 text-xs font-mono mb-6 hover:bg-teal-500/10 transition-colors">
-          <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 dark:border-teal-500/20 bg-zinc-100 dark:bg-teal-500/5 text-zinc-600 dark:text-teal-400 text-xs font-mono mb-6 hover:bg-zinc-200/50 dark:hover:bg-teal-500/10 transition-colors">
+          <span className="w-1.5 h-1.5 rounded-full bg-teal-500 dark:bg-teal-400 animate-pulse"></span>
           <span>AI & Full Stack Developer</span>
         </div>
 
         {/* Title */}
-        <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+        <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-6 leading-tight">
           Kriti Sreyash Parida
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl font-mono text-zinc-400 mb-6 max-w-2xl mx-auto min-h-[30px]">
+        <p className="text-lg sm:text-xl font-mono text-zinc-600 dark:text-zinc-400 mb-6 max-w-2xl mx-auto min-h-[30px]">
           {typedText}
           <span className="animate-pulse text-teal-500 ml-0.5">|</span>
         </p>
 
         {/* Short Bio */}
-        <p className="text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed text-base">
+        <p className="text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed text-base">
           A motivated Computer Science undergraduate passionate about Artificial Intelligence, software development, and building technology solutions that solve meaningful real-world problems.
         </p>
 
@@ -190,7 +189,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
           <a
             href="#projects"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 rounded-md font-semibold text-sm hover:bg-zinc-200 transition-all hover:scale-[1.02] shadow-lg shadow-white/5 active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 transition-all hover:scale-[1.02] shadow-lg active:scale-[0.98]"
           >
             <span>View Projects</span>
             <ArrowRight size={16} />
@@ -200,7 +199,7 @@ export default function Hero() {
             href="https://github.com/kritisp"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-zinc-800 bg-zinc-900/40 backdrop-blur-sm text-zinc-300 rounded-md font-medium text-sm hover:bg-zinc-900 hover:border-zinc-700 transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-zinc-200 bg-white text-zinc-750 rounded-md font-medium text-sm hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-300 dark:hover:bg-zinc-900 dark:hover:border-zinc-700 transition-all"
           >
             <Github size={16} />
             <span>GitHub</span>
@@ -210,7 +209,7 @@ export default function Hero() {
             href="https://www.linkedin.com/in/kriti-sreyash-parida-8440991aa"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-zinc-800 bg-zinc-900/40 backdrop-blur-sm text-zinc-300 rounded-md font-medium text-sm hover:bg-zinc-900 hover:border-zinc-700 transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-zinc-200 bg-white text-zinc-750 rounded-md font-medium text-sm hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-300 dark:hover:bg-zinc-900 dark:hover:border-zinc-700 transition-all"
           >
             <Linkedin size={16} />
             <span>LinkedIn</span>
@@ -218,7 +217,7 @@ export default function Hero() {
 
           <a
             href="#contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-zinc-800 bg-zinc-900/40 backdrop-blur-sm text-zinc-300 rounded-md font-medium text-sm hover:bg-zinc-900 hover:border-zinc-700 transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-zinc-200 bg-white text-zinc-750 rounded-md font-medium text-sm hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-300 dark:hover:bg-zinc-900 dark:hover:border-zinc-700 transition-all"
           >
             <Mail size={16} />
             <span>Contact Me</span>

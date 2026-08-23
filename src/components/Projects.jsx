@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ExternalLink, ShieldCheck, Cpu, Layout, Activity, Sparkles, Server } from 'lucide-react'
+import { ExternalLink, ShieldCheck, Layout } from 'lucide-react'
 
 export default function Projects() {
   const [filter, setFilter] = useState('All')
@@ -85,19 +85,16 @@ export default function Projects() {
     ? projects 
     : projects.filter(p => p.category.includes(filter))
 
-  // Custom component representing the project's visual mockup blueprint
   const ProjectMockup = ({ type }) => {
     if (type === 'graph') {
       return (
-        <div className="relative w-full h-48 md:h-full bg-zinc-950/80 rounded-lg border border-zinc-800/80 flex items-center justify-center overflow-hidden p-4 group-hover:border-indigo-500/20 transition-colors">
+        <div className="relative w-full h-48 md:h-full bg-white dark:bg-zinc-950/80 rounded-lg border border-zinc-200 dark:border-zinc-800/80 flex items-center justify-center overflow-hidden p-4 group-hover:border-indigo-500/20 transition-colors">
           <div className="absolute inset-0 bg-[radial-gradient(#4f46e50f_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-          {/* Animated node diagram */}
           <svg className="w-full h-full opacity-60" viewBox="0 0 200 120">
             <line x1="40" y1="60" x2="100" y2="30" stroke="rgba(99, 102, 241, 0.4)" strokeWidth="1" className="animate-pulse" />
             <line x1="40" y1="60" x2="100" y2="90" stroke="rgba(99, 102, 241, 0.4)" strokeWidth="1" />
             <line x1="100" y1="30" x2="160" y2="60" stroke="rgba(99, 102, 241, 0.4)" strokeWidth="1" />
             <line x1="100" y1="90" x2="160" y2="60" stroke="rgba(99, 102, 241, 0.4)" strokeWidth="1" />
-            <line x1="100" y1="30" x2="100" y2="90" stroke="rgba(6, 182, 212, 0.3)" strokeWidth="1" strokeDasharray="3" />
             
             <circle cx="40" cy="60" r="5" fill="#4f46e5" className="animate-ping" style={{ animationDuration: '3s' }} />
             <circle cx="40" cy="60" r="4" fill="#6366f1" />
@@ -105,9 +102,9 @@ export default function Projects() {
             <circle cx="100" cy="90" r="4" fill="#06b6d4" />
             <circle cx="160" cy="60" r="4" fill="#6366f1" />
             
-            <text x="45" y="55" fill="rgba(255,255,255,0.4)" fontSize="6" fontFamily="monospace">Case_Node_01</text>
-            <text x="105" y="25" fill="rgba(255,255,255,0.4)" fontSize="6" fontFamily="monospace">Suspect_Lnk</text>
-            <text x="105" y="98" fill="rgba(255,255,255,0.4)" fontSize="6" fontFamily="monospace">Evidence_Node</text>
+            <text x="45" y="55" fill="currentColor" className="text-zinc-500 dark:text-zinc-400" fontSize="6" fontFamily="monospace">Case_Node_01</text>
+            <text x="105" y="25" fill="currentColor" className="text-zinc-500 dark:text-zinc-400" fontSize="6" fontFamily="monospace">Suspect_Lnk</text>
+            <text x="105" y="98" fill="currentColor" className="text-zinc-500 dark:text-zinc-400" fontSize="6" fontFamily="monospace">Evidence_Node</text>
           </svg>
         </div>
       )
@@ -115,7 +112,7 @@ export default function Projects() {
 
     if (type === 'chat') {
       return (
-        <div className="relative w-full h-48 bg-zinc-950/80 rounded-lg border border-zinc-800/80 p-3 flex flex-col justify-between overflow-hidden group-hover:border-teal-500/20 transition-colors">
+        <div className="relative w-full h-48 bg-white dark:bg-zinc-950/80 rounded-lg border border-zinc-200 dark:border-zinc-800/80 p-3 flex flex-col justify-between overflow-hidden group-hover:border-teal-500/20 transition-colors">
           <div className="space-y-2.5">
             <div className="flex gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
@@ -123,15 +120,15 @@ export default function Projects() {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
             </div>
             <div className="space-y-2">
-              <div className="bg-zinc-900 border border-zinc-850 p-2 rounded text-[9px] font-mono text-zinc-400 max-w-[80%]">
+              <div className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-850 p-2 rounded text-[9px] font-mono text-zinc-650 dark:text-zinc-400 max-w-[80%]">
                 How can I manage exam anxiety?
               </div>
-              <div className="bg-teal-500/10 border border-teal-500/20 p-2 rounded text-[9px] font-mono text-teal-300 max-w-[85%] self-end ml-auto">
-                <span className="font-semibold text-teal-400">Gemini:</span> Let's structure a custom breathing cycle...
+              <div className="bg-teal-50 dark:bg-teal-500/10 border border-teal-200 dark:border-teal-500/20 p-2 rounded text-[9px] font-mono text-teal-700 dark:text-teal-300 max-w-[85%] self-end ml-auto">
+                <span className="font-semibold text-teal-600 dark:text-teal-400">Gemini:</span> Let's structure a custom breathing cycle...
               </div>
             </div>
           </div>
-          <div className="h-6 border-t border-zinc-850 flex items-center justify-between px-1 text-[8px] font-mono text-zinc-500">
+          <div className="h-6 border-t border-zinc-200 dark:border-zinc-850 flex items-center justify-between px-1 text-[8px] font-mono text-zinc-500">
             <span>Supabase Session: active</span>
             <span>MongoDB: connected</span>
           </div>
@@ -140,29 +137,29 @@ export default function Projects() {
     }
 
     return (
-      <div className="relative w-full h-48 bg-zinc-950/80 rounded-lg border border-zinc-800/80 p-3 flex flex-col justify-between overflow-hidden group-hover:border-blue-500/20 transition-colors">
+      <div className="relative w-full h-48 bg-white dark:bg-zinc-950/80 rounded-lg border border-zinc-200 dark:border-zinc-800/80 p-3 flex flex-col justify-between overflow-hidden group-hover:border-blue-500/20 transition-colors">
         <div className="space-y-2">
           <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
             <span>LifeCord Gateway API</span>
-            <span className="text-emerald-400">200 OK</span>
+            <span className="text-emerald-500">200 OK</span>
           </div>
-          <div className="bg-zinc-900 border border-zinc-850 p-2 rounded space-y-1">
-            <div className="h-1.5 bg-zinc-800 rounded w-2/3"></div>
-            <div className="h-1.5 bg-zinc-800 rounded w-1/2"></div>
+          <div className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-850 p-2 rounded space-y-1">
+            <div className="h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded w-2/3"></div>
+            <div className="h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded w-1/2"></div>
             <div className="flex justify-between pt-1">
-              <span className="text-[7px] font-mono text-blue-400">WebSocket Ping: 12ms</span>
+              <span className="text-[7px] font-mono text-blue-600 dark:text-blue-400">WebSocket Ping: 12ms</span>
               <span className="text-[7px] font-mono text-zinc-500">PostgreSQL</span>
             </div>
           </div>
         </div>
-        <div className="h-10 bg-zinc-900/30 rounded border border-zinc-850/50 flex items-center justify-around">
+        <div className="h-10 bg-zinc-50 dark:bg-zinc-900/30 rounded border border-zinc-200 dark:border-zinc-850/50 flex items-center justify-around">
           <div className="text-center">
             <p className="text-[8px] text-zinc-500 font-mono">Doc_Queue</p>
-            <p className="text-xs font-mono font-bold text-white">4 min</p>
+            <p className="text-xs font-mono font-bold text-zinc-850 dark:text-white">4 min</p>
           </div>
-          <div className="text-center border-l border-zinc-850 pl-4">
+          <div className="text-center border-l border-zinc-200 dark:border-zinc-850 pl-4">
             <p className="text-[8px] text-zinc-500 font-mono">Beds_Avail</p>
-            <p className="text-xs font-mono font-bold text-teal-400">82%</p>
+            <p className="text-xs font-mono font-bold text-teal-650 dark:text-teal-400">82%</p>
           </div>
         </div>
       </div>
@@ -170,26 +167,26 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-28 border-t border-zinc-900 bg-[#030303]">
+    <section id="projects" className="py-28 border-t border-zinc-200 dark:border-zinc-900 bg-zinc-50 dark:bg-[#030303] transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header & Filters */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
-            <p className="font-mono text-xs text-teal-400 uppercase tracking-widest mb-2">02. Engineering</p>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">Showcase Projects</h2>
+            <p className="font-mono text-xs text-teal-600 dark:text-teal-400 uppercase tracking-widest mb-2">02. Engineering</p>
+            <h2 className="text-3xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tight">Showcase Projects</h2>
           </div>
           
           {/* Filters */}
-          <div className="flex flex-wrap gap-1.5 mt-6 md:mt-0 bg-zinc-900/40 p-1 border border-zinc-850 rounded-md">
+          <div className="flex flex-wrap gap-1.5 mt-6 md:mt-0 bg-zinc-200/50 dark:bg-zinc-900/40 p-1 border border-zinc-200 dark:border-zinc-850 rounded-md">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
                 className={`px-3.5 py-1.5 rounded text-xs font-mono transition-all duration-200 ${
                   filter === cat 
-                    ? 'bg-zinc-850 text-white font-semibold border border-zinc-800' 
-                    : 'text-zinc-400 hover:text-zinc-200 border border-transparent'
+                    ? 'bg-white dark:bg-zinc-850 text-zinc-900 dark:text-white font-semibold border border-zinc-200 dark:border-zinc-800 shadow-sm' 
+                    : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 border border-transparent'
                 }`}
               >
                 {cat}
@@ -205,7 +202,7 @@ export default function Projects() {
             return (
               <div 
                 key={project.id}
-                className={`group relative border border-zinc-850 bg-zinc-900/10 hover:border-zinc-800 rounded-xl p-6 md:p-8 transition-all duration-300 overflow-hidden glow-card ${
+                className={`group relative border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-900/10 hover:border-zinc-300 dark:hover:border-zinc-800 rounded-xl p-6 md:p-8 transition-all duration-300 overflow-hidden glow-card ${
                   isFeatured ? 'grid grid-cols-1 lg:grid-cols-12 gap-8' : ''
                 }`}
               >
@@ -217,60 +214,60 @@ export default function Projects() {
                   <div>
                     {/* Badge & Category */}
                     <div className="flex flex-wrap items-center gap-2 mb-4">
-                      <span className="text-[10px] font-mono font-medium text-teal-400 bg-teal-500/5 border border-teal-500/10 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono font-medium text-teal-650 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/5 border border-teal-200 dark:border-teal-500/10 px-2 py-0.5 rounded">
                         {project.category.join(' / ')}
                       </span>
                       {project.badge && (
-                        <span className="text-[10px] font-mono font-medium text-amber-500 bg-amber-500/5 border border-amber-500/10 px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-mono font-medium text-amber-700 dark:text-amber-500 bg-amber-50 dark:bg-amber-500/5 border border-amber-200 dark:border-amber-500/10 px-2.5 py-0.5 rounded-full">
                           {project.badge}
                         </span>
                       )}
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-teal-400 transition-colors tracking-tight">
+                    <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors tracking-tight">
                       {project.title}
                     </h3>
-                    <p className="text-xs font-mono text-zinc-500 mt-1 mb-4 uppercase tracking-wider">
+                    <p className="text-xs font-mono text-zinc-400 dark:text-zinc-500 mt-1 mb-4 uppercase tracking-wider">
                       {project.subtitle}
                     </p>
 
                     {/* Impact Statement */}
-                    <p className="text-sm text-teal-300/90 font-mono mb-4 border-l border-teal-500/50 pl-3 leading-relaxed">
+                    <p className="text-sm text-teal-750 dark:text-teal-300/90 font-mono mb-4 border-l-2 border-teal-500 pl-3 leading-relaxed">
                       {project.impact}
                     </p>
 
                     {/* Description */}
-                    <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+                    <p className="text-sm text-zinc-650 dark:text-zinc-400 leading-relaxed mb-6">
                       {project.description}
                     </p>
 
                     {/* Core Features list */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6 bg-zinc-950/40 p-4 rounded-lg border border-zinc-850">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6 bg-zinc-50 dark:bg-zinc-950/40 p-4 rounded-lg border border-zinc-200 dark:border-zinc-850">
                       <div className="space-y-2">
-                        <h4 className="text-xs font-mono text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
-                          <Layout size={13} className="text-teal-400" />
+                        <h4 className="text-xs font-mono text-zinc-700 dark:text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
+                          <Layout size={13} className="text-teal-600 dark:text-teal-400" />
                           <span>Features</span>
                         </h4>
-                        <ul className="space-y-1 text-xs text-zinc-400">
+                        <ul className="space-y-1 text-xs text-zinc-500 dark:text-zinc-400">
                           {project.features.map((f, i) => (
                             <li key={i} className="flex items-center gap-1.5">
-                              <span className="text-zinc-600">-</span>
+                              <span className="text-zinc-400 dark:text-zinc-600">-</span>
                               <span>{f}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                       
-                      <div className="space-y-2 border-t md:border-t-0 md:border-l border-zinc-850/80 pt-3 md:pt-0 md:pl-4">
-                        <h4 className="text-xs font-mono text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
-                          <ShieldCheck size={13} className="text-teal-400" />
+                      <div className="space-y-2 border-t md:border-t-0 md:border-l border-zinc-200 dark:border-zinc-850/80 pt-3 md:pt-0 md:pl-4">
+                        <h4 className="text-xs font-mono text-zinc-700 dark:text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
+                          <ShieldCheck size={13} className="text-teal-600 dark:text-teal-400" />
                           <span>Contribution</span>
                         </h4>
-                        <ul className="space-y-1 text-xs text-zinc-400">
+                        <ul className="space-y-1 text-xs text-zinc-500 dark:text-zinc-400">
                           {project.contributions.map((c, i) => (
                             <li key={i} className="flex items-center gap-1.5">
-                              <span className="text-zinc-600">-</span>
+                              <span className="text-zinc-400 dark:text-zinc-600">-</span>
                               <span>{c}</span>
                             </li>
                           ))}
@@ -283,18 +280,18 @@ export default function Projects() {
                   <div className="space-y-4">
                     <div className="flex flex-wrap gap-1.5">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="text-[10px] font-mono text-zinc-400 bg-zinc-950 border border-zinc-850 px-2.5 py-1 rounded">
+                        <span key={tag} className="text-[10px] font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-850 px-2.5 py-1 rounded">
                           {tag}
                         </span>
                       ))}
                     </div>
                     
-                    <div className="flex items-center justify-between pt-2 border-t border-zinc-850/50">
+                    <div className="flex items-center justify-between pt-2 border-t border-zinc-200 dark:border-zinc-850/50">
                       <a 
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 hover:text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors"
                       >
                         <span>View Repository</span>
                         <ExternalLink size={13} />
@@ -303,7 +300,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Right side Visual Preview (Featured or stacked) */}
+                {/* Right side Visual Preview */}
                 {isFeatured ? (
                   <div className="lg:col-span-5 flex flex-col justify-center">
                     <ProjectMockup type={project.visualType} />
